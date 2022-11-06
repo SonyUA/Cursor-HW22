@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { FlexContainer } from "./component/StyledComponent";
+import { LoginForm } from "./component/login/loginForm";
+import { RegistrationForm } from "./component/registration/Registration";
+import { NoPage } from "./component/NoPage";
+import { GlobalS } from "./component/GlobalStyle";
+import { Routes, Route } from "react-router-dom";
+const App = () => {
+    return (
+        <FlexContainer>
+            <GlobalS />
+            <Routes>
+                <Route path="/" element={<LoginForm />}></Route>
+                <Route path="/registration" element={<RegistrationForm />}></Route>
+                <Route path="*" element={<NoPage />}></Route>
+            </Routes>
+        </FlexContainer>
+    );
+};
 
 export default App;
